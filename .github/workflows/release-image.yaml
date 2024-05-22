@@ -49,17 +49,12 @@ jobs:
         run: make docker-build
         working-directory: ${{ inputs.WORKING_DIRECTORY }}
 
-      - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@v0.20.0
+      - name: Scan image
+        uses: anchore/scan-action@v3
         with:
-          image-ref: 'docker.io/5gsec/${{ inputs.NAME }}:v0.1'
-          format: 'sarif'
-          exit-code: '1'
-          ignore-unfixed: true
-          vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH'
-          scan-type: image
-          output: 'trivy-results.sarif'
+          image: '5gsec/${{ inputs.NAME }}:v0.1'
+          severity-cutoff: critical
+          output-format: sarif
 
       - name: Build and push image
         working-directory: ${{ inputs.WORKING_DIRECTORY }}

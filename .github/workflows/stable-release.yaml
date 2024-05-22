@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   release-nimbus-image:
-    if: github.repository == '5GSEC/nimbus'
+    #if: github.repository == '5GSEC/nimbus'
     name: Build and push nimbus image
     uses: ./.github/workflows/release-image.yaml
     with:
@@ -25,7 +25,7 @@ jobs:
     secrets: inherit
 
   release-adapters-image:
-    if: github.repository == '5GSEC/nimbus'
+    #if: github.repository == '5GSEC/nimbus'
     strategy:
       matrix:
         adapters: [ "nimbus-kubearmor", "nimbus-netpol", "nimbus-kyverno" ]
