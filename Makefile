@@ -2,7 +2,7 @@
 # Copyright 2023 Authors of Nimbus
 
 # Image URL to use all building/pushing image targets
-IMG ?= 5gsec/nimbus
+IMG ?= ttl.sh/nimbus
 # Image Tag to use all building/pushing image targets
 TAG ?= latest
 
@@ -100,7 +100,7 @@ lint-fix: golangci-lint ## Run golangci-lint linter and perform fixes
 ##@ Build
 
 .PHONY: build
-build: manifests generate fmt vet ## Build manager binary.
+build: fmt vet ## Build manager binary.
 	@go build -ldflags="-s" -o bin/"${BINARY_NAME}" ./cmd
 
 .PHONY: run

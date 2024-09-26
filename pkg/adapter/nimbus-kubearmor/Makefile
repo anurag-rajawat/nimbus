@@ -2,7 +2,7 @@
 # Copyright 2023 Authors of Nimbus
 
 # Image URL to use all building/pushing image targets
-IMG ?= 5gsec/nimbus-kubearmor
+IMG ?= ttl.sh/nimbus-kubearmor
 # Image Tag to use all building/pushing image targets
 TAG ?= latest
 
